@@ -1,5 +1,5 @@
 === WooCommerce Admin Customer Milestone Notifier ===
-Contributors: ronakganatra
+Contributors:
 Tags: comments, inbox, WooCommerce, admin
 Requires at least: 5.0.0
 Tested up to: 5.1
