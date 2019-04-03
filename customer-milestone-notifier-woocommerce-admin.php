@@ -211,6 +211,15 @@ class WooCommerce_Activity_Panel_Customer_Milestone_Notification {
 		}
 	}
 
+	/*
+	 * It will check that WooCommerce Admin plugin is installed activated or not before ativation of this plugin.
+	 */
+	public static function self_deactivate_notice() {
+		if ( ! class_exists( 'WC_Admin_Notes' ) ) {
+			wp_die( "It requires WooCommerce Admin to be installed and active." );
+		}
+	}
+
 	/**
 	 * Removes any notes this plugin created.
 	 */
@@ -226,6 +235,7 @@ class WooCommerce_Activity_Panel_Customer_Milestone_Notification {
 }
 
 function customer_milestone_notifier_activate() {
+	WooCommerce_Activity_Panel_Customer_Milestone_Notification::self_deactivate_notice();
 }
 
 register_activation_hook( __FILE__, 'customer_milestone_notifier_activate' );
